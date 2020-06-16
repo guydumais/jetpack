@@ -222,7 +222,6 @@ class SearchApp extends Component {
 		query = getSearchQuery(),
 		filter = getFilterQuery(),
 		sort = getSortQuery(),
-		resultFormat = getResultFormatQuery(),
 		pageHandle,
 	} = {} ) => {
 		const requestId = this.state.requestId + 1;
@@ -234,7 +233,6 @@ class SearchApp extends Component {
 			filter,
 			pageHandle,
 			query,
-			resultFormat,
 			siteId: this.props.options.siteId,
 			sort,
 			postsPerPage: this.props.options.postsPerPage,
@@ -292,7 +290,7 @@ class SearchApp extends Component {
 					postTypes={ this.props.options.postTypes }
 					query={ getSearchQuery() }
 					response={ this.state.response }
-					resultFormat={ getResultFormatQuery() }
+					resultFormat={ this.state.overlayOptions.resultFormat }
 					showPoweredBy={ this.state.overlayOptions.showPoweredBy }
 					widgets={ this.props.options.widgets }
 					widgetsOutsideOverlay={ this.props.options.widgetsOutsideOverlay }
