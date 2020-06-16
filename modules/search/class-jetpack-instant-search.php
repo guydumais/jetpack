@@ -128,6 +128,7 @@ class Jetpack_Instant_Search extends Jetpack_Search {
 				'highlightColor'  => get_option( $prefix . 'highlight_color', '#FFC' ),
 				'opacity'         => (int) get_option( $prefix . 'opacity', 97 ),
 				'overlayTrigger'  => get_option( $prefix . 'overlay_trigger', 'immediate' ),
+				'resultFormat'    => get_option( $prefix . 'result_format', 'engagement' ),
 				'showPoweredBy'   => (bool) get_option( $prefix . 'show_powered_by', true ),
 			),
 
