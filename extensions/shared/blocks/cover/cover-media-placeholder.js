@@ -9,7 +9,7 @@ import { __ } from '@wordpress/i18n';
 /**
  * Internal dependencies
  */
-import UpgradeNudge from "../../components/upgrade-nudge";
+import UpgradeNudge from '../../components/upgrade-nudge';
 import { isUpgradable, isVideoFile } from './utils';
 
 /**
