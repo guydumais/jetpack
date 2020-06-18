@@ -12,7 +12,7 @@ export const PATH_ROOT = '/';
 export const PATH_OPTIONS = [
 	{
 		value: PATH_RECENT,
-		label: __( 'Recent Photos', 'jetpack' ),
+		label: __( 'All Photos', 'jetpack' ),
 	},
 	{
 		value: PATH_ROOT,
