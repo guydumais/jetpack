@@ -6,7 +6,7 @@
 	width: 100vw;
 	height: 100vh;
 	padding: 3em 1em;
-	background: rgba(255, 255, 255, 0.975);
+	background: rgba( 255, 255, 255, 0.975 );
 	overflow-y: auto;
 	overflow-x: hidden;
 	transition: opacity 0.15s ease-in-out;
@@ -17,14 +17,16 @@
 	}
 
 	&.jetpack-instant-search__overlay--light {
-		background: #fff;
+		background: $studio-white;
 	}
 
 	&.jetpack-instant-search__overlay--dark {
-		background: #131313;
+		background: $studio-gray-100;
 	}
 
-	*, *:before, *:after {
+	*,
+	*:before,
+	*:after {
 		box-sizing: inherit;
 	}
 }
