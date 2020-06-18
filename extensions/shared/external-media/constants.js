@@ -162,8 +162,9 @@ export const GOOGLE_PHOTOS_DATE_PRESETS = [
 		value: DATE_RANGE_OLDER,
 		label: __( 'Older than a year', 'jetpack' ),
 	},
-	{
-		value: DATE_RANGE_CUSTOM,
-		label: __( 'Custom Range', 'jetpack' ),
-	},
+	// TODO: Implement a UI for selecting month & year.
+	//{
+	//	value: DATE_RANGE_CUSTOM,
+	//	label: __( 'Custom Range', 'jetpack' ),
+	//},
 ];
