@@ -699,6 +699,10 @@ HTML;
 	 * @since 7.1
 	 */
 	function get_ad_div( $spot, $snippet, array $css_classes = array() ) {
+		if ( strpos( strtolower( $spot ), 'amp' ) === false ) {
+			return $snippet; // we don't want dynamic ads to be inserted
+		}
+
 		if ( empty( $css_classes ) ) {
 			$css_classes = array();
 		}
