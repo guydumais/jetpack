@@ -110,20 +110,20 @@ function GooglePhotosMedia( props ) {
 						canChangeMedia={ ! imageOnly }
 					/>
 				) }
-			</div>
 
-			<div className="jetpack-external-media-header__filter">
-				{ path.ID === PATH_RECENT && (
-					<GoogleFilterOption
-						filters={ filters }
-						isLoading={ isLoading }
-						setFilters={ setFilters }
-						canChangeMedia={ ! imageOnly }
-					/>
-				) }
-				{ path.ID !== PATH_RECENT && path.ID !== PATH_ROOT && (
-					<Breadcrumbs path={ path } setPath={ setPath } />
-				) }
+				<div className="jetpack-external-media-header__filter">
+					{ path.ID === PATH_RECENT && (
+						<GoogleFilterOption
+							filters={ filters }
+							isLoading={ isLoading }
+							setFilters={ setFilters }
+							canChangeMedia={ ! imageOnly }
+						/>
+					) }
+					{ path.ID !== PATH_RECENT && path.ID !== PATH_ROOT && (
+						<Breadcrumbs path={ path } setPath={ setPath } />
+					) }
+				</div>
 			</div>
 
 			<MediaBrowser
