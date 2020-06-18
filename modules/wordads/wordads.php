@@ -351,6 +351,7 @@ HTML;
 		if ( self::is_amp() ) {
 			return;
 		}
+
 		$data_tags = ( $this->params->cloudflare ) ? ' data-cfasync="false"' : '';
 		echo <<<HTML
 		<script$data_tags type="text/javascript">
@@ -479,7 +480,7 @@ HTML;
 		echo $this->get_ad( 'top', $ad_type );
 		if ( ! self::is_amp() ) {
 			echo <<<HTML
-		<script type="text/javascript">
+			<script type="text/javascript">
 			(function ( selector ) {
 				var main = document.querySelector( selector );
 				var headerAd = document.querySelector('.wpcnt-header');
@@ -488,8 +489,7 @@ HTML;
 					main.parentNode.insertBefore( headerAd, main );
 				}
 			})( '$selector' );
-
-		</script>
+			</script>
 HTML;
 		}
 	}
@@ -560,7 +560,7 @@ HTML;
 				// Ad unit which can safely be inserted below title, above content in a variety of themes.
 				$width   = $this->params->mobile_device ? 320 : 300;
 				$height  = $this->params->mobile_device ? 50 : 250;
-				$snippet = $this->get_amp_snippet( $height, $width );
+				$snippet = $this->get_ad_div( $spot, $this->get_amp_snippet( $height, $width ) );
 			}
 		} elseif ( 'house' == $type ) {
 			$leaderboard = 'top' == $spot && ! $this->params->mobile_device;
@@ -570,15 +570,15 @@ HTML;
 			}
 		}
 
-		return $this->get_ad_div( $spot, $snippet );
+		return $snippet;
 	}
 
 
 	/**
 	 * Returns the AMP snippet to be inserted
 	 *
-	 * @param  int    $height
-	 * @param  int    $width
+	 * @param  int $height
+	 * @param  int $width
 	 * @return string
 	 *
 	 * @since 8.7
