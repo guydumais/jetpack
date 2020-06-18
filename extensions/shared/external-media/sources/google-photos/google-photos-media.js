@@ -8,7 +8,13 @@ import { SelectControl } from '@wordpress/components';
 /**
  * Internal dependencies
  */
-import { SOURCE_GOOGLE_PHOTOS, PATH_RECENT, PATH_ROOT, PATH_OPTIONS } from '../../constants';
+import {
+	SOURCE_GOOGLE_PHOTOS,
+	PATH_RECENT,
+	PATH_ROOT,
+	PATH_OPTIONS,
+	DATE_RANGE_ANY,
+} from '../../constants';
 import MediaBrowser from '../../media-browser';
 import { getApiUrl } from '../api';
 import GoogleFilterOption from './filter-option';
@@ -30,10 +36,15 @@ function GooglePhotosMedia( props ) {
 		allowedTypes,
 		path,
 		copyMedia,
+		showAdditionalFilters = false,
 	} = props;
 
 	const imageOnly = isImageOnly( allowedTypes );
-	const [ filters, setFilters ] = useState( imageOnly ? { mediaType: 'photo' } : {} );
+	const [ filters, setFilters ] = useState(
+		imageOnly
+			? { mediaType: 'photo', date: { range: DATE_RANGE_ANY } }
+			: { date: { range: DATE_RANGE_ANY } }
+	);
 
 	const lastQuery = useRef( '' );
 	const lastPath = useRef( '' );
@@ -91,7 +102,7 @@ function GooglePhotosMedia( props ) {
 					onChange={ setPath }
 				/>
 
-				{ path.ID === PATH_RECENT && (
+				{ showAdditionalFilters && path.ID === PATH_RECENT && (
 					<GoogleFilterView
 						filters={ filters }
 						isLoading={ isLoading }
